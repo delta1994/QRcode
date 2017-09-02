@@ -14,12 +14,12 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        username = (EditText) findViewById(R.id.et_username);
-        password = (EditText) findViewById(R.id.et_password);
-        email = (EditText) findViewById(R.id.et_email);
+        username = findViewById(R.id.et_username);
+        password = findViewById(R.id.et_password);
+        email = findViewById(R.id.et_email);
     }
 
-    public void OnReg(View view) {
+    public void OnReg (View view) {
 
         String str_username = username.getText().toString();
         String str_password = password.getText().toString();
