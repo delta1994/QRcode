@@ -17,15 +17,16 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 /**
- * Created by Alovia on 2/9/2560.
+ * Created by Alovia on 3/9/2560.
  */
 
-public class Backgroundgencode extends AsyncTask<String, Void, String> {
+public class Backgroundcode1 extends AsyncTask<String, Void, String> {
+
 
     Context context;
     AlertDialog alertDialog;
 
-    Backgroundgencode(Context ctx) {
+    Backgroundcode1(Context ctx) {
         context = ctx;
     }
 
@@ -33,19 +34,19 @@ public class Backgroundgencode extends AsyncTask<String, Void, String> {
     protected String doInBackground(String... params) {
         AlertDialog alertDialog;
         String type = params[0];
-        String insert_url = "http://jonhslim.pe.hu/tor/insert.php";
+        String select_url = "http://jonhslim.pe.hu/tor/select.php";
         String register_url = "http://jonhslim.pe.hu/tor/register.php";
-        if (type.equals("addgenCode")){
+        if (type.equals("search22")){
             try {
-                String Addcode = params[1];
-                URL url = new URL (insert_url);
+                String search33 = params[1];
+                URL url = new URL (select_url);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                 httpURLConnection.setRequestMethod("POST");
                 httpURLConnection.setDoOutput(true);
                 httpURLConnection.setDoInput(true);
                 OutputStream outputStream = httpURLConnection.getOutputStream();
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
-                String post_data = URLEncoder.encode("sendnum", "UTF-8")+"="+ URLEncoder.encode(Addcode,"UTF-8");
+                String post_data = URLEncoder.encode("getnumber1", "UTF-8")+"="+ URLEncoder.encode(search33,"UTF-8");
                 bufferedWriter.write(post_data);
                 bufferedWriter.flush();
                 bufferedWriter.close();
@@ -128,5 +129,4 @@ public class Backgroundgencode extends AsyncTask<String, Void, String> {
     protected void onProgressUpdate(Void... values) {
         super.onProgressUpdate(values);
     }
-
 }
